@@ -35,31 +35,25 @@
         <div>
             <div class="form-floating">
                 <input type="password" class="form-control" id="pass_lock">
-                <button onclick="sendData(this);" class="btn btn-outline-secondary" type="button"
+                <button onclick="sendData();" class="btn btn-outline-secondary" type="button"
                     id="send">Send</button>
             </div>
         </div>
     </div>
     <script>
-        function sendData(input) {
-            var val = input.previousElementSibling.value;
-            var pass = {
-                password: val
-            }
-            console.log(pass);
+        function sendData() {
+            var val = document.getElementById('pass_lock').value;
+            // var pass = {
+            //     password: val
+            // }
             document.getElementById('pass_lock').value = '';
+            
 
             var xhr = new XMLHttpRequest();
-            // xhr.onreadystatechange = function () {
-            //     if (this.readyState == 4 && this.status == 200) {
-            //         console.log('good');
-            //     }
-            //     else console.log('no good');
-            // };
-            xhr.open('post', '伺服器URL', true);
-            xhr.setRequestHeader('Content-type', 'application/json');
-            var data = JSON.stringify(pass);
-            xhr.send(data);
+            xhr.open('POST', 'http://127.0.0.1:8080/', true);
+            xhr.setRequestHeader('Content-type', 'text/plain');
+            xhr.send(val);
+            console.log(val);
         }
     </script>
 </body>

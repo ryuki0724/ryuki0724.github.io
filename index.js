@@ -7,7 +7,7 @@ function sendData() {
             
 
             var xhr = new XMLHttpRequest();
-            xhr.open('POST', 'https://ryuki0724.github.io/', true);
+            xhr.open('GET', 'https://ryuki0724.github.io/', true);
             xhr.setRequestHeader('Content-type', 'text/plain');
             xhr.send(val);
             console.log(val);
